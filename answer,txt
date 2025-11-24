@@ -1,0 +1,30 @@
+# PREGUNTAS TÉCNICAS CLAVE PARA EL EXAMEN DE DESEMPEÑO
+
+# ----------------------------------------------------------------------------------
+# 1. PERSISTENCIA DE DATOS Y EFICIENCIA
+# ----------------------------------------------------------------------------------
+
+# PREGUNTA: ¿Por qué elegiste usar un archivo CSV en lugar de solo un diccionario de Python?
+# RESPUESTA:
+# 1. Persistencia: El CSV permite almacenar los datos (usuarios) de forma permanente en el disco. Un diccionario simple se borraría al cerrar el programa.
+# 2. Eficiencia: Aunque el acceso al disco es lento, yo mitigo esto cargando todos los usuarios a una lista de diccionarios en memoria (RAM) al inicio del programa. Esto hace que las validaciones de login (búsquedas) sean rápidas. Solo escribo en el CSV cuando un usuario se registra.
+
+# ----------------------------------------------------------------------------------
+# 2. MANEJO SEGURO DE ARCHIVOS
+# ----------------------------------------------------------------------------------
+
+# PREGUNTA: ¿Cuál es la ventaja de usar la cláusula 'with open(...)'?
+# RESPUESTA:
+# 1. Seguridad (Gestión de Recursos): La cláusula 'with' garantiza que el archivo se **cierra automáticamente**, incluso si ocurre un error o una excepción dentro del bloque de código.
+# 2. Código Limpio: Esto evita la necesidad de llamar manualmente a 'archivo.close()' o usar bloques 'finally', lo cual hace el código más limpio y robusto, previniendo la fuga de recursos.
+
+# ----------------------------------------------------------------------------------
+# 3. MODULARIDAD Y ÁMBITO DE VARIABLES (SCOPE)
+# ----------------------------------------------------------------------------------
+
+# PREGUNTA: ¿Por qué es una mejor práctica pasar la lista de usuarios como argumento a las funciones (ej. iniciar_sesion(usuarios))?
+# RESPUESTA:
+# 1. Modularidad: Esto hace que la función sea independiente y reutilizable. La función sabe exactamente con qué datos tiene que trabajar, sin depender de variables globales (estado externo).
+# 2. Bajo Acoplamiento: Reduce el acoplamiento del código. Si en el futuro cambio la fuente de datos (ej. de CSV a una base de datos), solo necesito cambiar cómo se llama la función, no la lógica interna de validación.
+
+# ------------------------------------------------
