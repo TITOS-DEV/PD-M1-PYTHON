@@ -1,0 +1,99 @@
+# PYTHON CHEAT SHEET (AYUDA RÁPIDA) - TITOS
+
+# ----------------------------------------
+# 1. ENTRADA Y SALIDA (I/O)
+# ----------------------------------------
+# Entrada de usuario
+variable = input("Mensaje: ")
+
+# Salida formateada (f-strings)
+nombre = "titos"
+print(f"Hola, {nombre}. Tienes {2025 - 2000} años.")
+
+# ----------------------------------------
+# 2. TIPOS DE DATOS Y ESTRUCTURAS
+# ----------------------------------------
+
+# LISTAS (mutables, ordenadas)
+lista = [1, 2, 3, "a"]
+lista.append(4)      # Añadir al final
+lista.pop()          # Eliminar el último (o por índice)
+lista[0] = 99        # Modificar elemento
+lista.sort()         # Ordenar
+
+# TUPLAS (inmutables, ordenadas)
+tupla = (1, 2, "b")
+# Desempaquetado
+x, y, z = tupla
+
+# DICCIONARIOS (mutables, clave-valor)
+diccionario = {"nombre": "titos", "edad": 25}
+# Acceso
+print(diccionario["nombre"])
+# Añadir/Modificar
+diccionario["ciudad"] = "Medellín"
+# Búsqueda rápida (muy importante para login)
+if "nombre" in diccionario:
+    pass
+
+# CONJUNTOS (mutables, no ordenados, sin duplicados)
+conjunto = {1, 2, 3, 3} # Solo almacena {1, 2, 3}
+
+# ----------------------------------------
+# 3. CONTROL DE FLUJO
+# ----------------------------------------
+
+# CONDICIONALES
+# Operadores: ==, !=, <, >, <=, >=
+if not es_admin and intentos < 3:
+    print("Acceso denegado")
+    
+# BUCLE FOR
+for item in [10, 20, 30]:
+    print(item)
+
+# BUCLE WHILE
+contador = 0
+while contador < 5:
+    contador += 1 # contador = contador + 1
+
+# BUCLE CONTROL
+for i in range(10):
+    if i == 5:
+        break    # Detiene el bucle completamente
+    if i % 2 == 0:
+        continue # Pasa a la siguiente iteración
+
+# ----------------------------------------
+# 4. FUNCIONES
+# ----------------------------------------
+
+def mi_funcion(param1, param2=10):
+    """Docstring: Explica qué hace la función."""
+    resultado = param1 + param2
+    return resultado
+
+# Llamada a la función
+suma = mi_funcion(5) # Usa 10 como param2
+resta = mi_funcion(5, param2=2)
+
+# Comprensión de Listas (código compacto y eficiente)
+# Búsqueda: python list comprehension example
+cuadrados = [x*x for x in range(10) if x % 2 == 0] 
+# Resultado: [0, 4, 16, 36, 64]
+
+# ----------------------------------------
+# 5. MANEJO DE ARCHIVOS (GENERAL)
+# ----------------------------------------
+
+# La cláusula 'with' asegura que el archivo se cierra automáticamente
+# 'r': read (lectura)
+# 'w': write (escritura, sobrescribe si existe)
+# 'a': append (añadir al final)
+
+try:
+    with open('datos.txt', 'r') as archivo:
+        contenido = archivo.read()
+        
+except FileNotFoundError:
+    print("Error: El archivo no existe.")
